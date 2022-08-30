@@ -3,3 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+h2,h3 {
+    color:  rgb(61, 61, 61)
+}
+
+@import './player';
+@import './song';
