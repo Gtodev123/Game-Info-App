@@ -9,17 +9,19 @@ import {
 import { useRef, useState } from "react";
 
 const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
-  //state
+  //states down
   const [icons , setIcons] = useState(faPlay)
+// icons state pause and play
   const [songInfo, setSongInfo] = useState({
     currentTime: "0.00",
     duration: null,
   });
+  // Song start time and duration !
 
   //Ref
   const audioRef = useRef(null);
 
-  //EventHandlers
+  //EventHandlers  
   const playSongHandler = () => {
     if (isPlaying) {
       audioRef.current.pause();

@@ -10,10 +10,13 @@ import { useState } from 'react';
 
 function App() {
 
+  //if song playing state start with, false.
   const [isPlaying, setIsPlaying] = useState(false);
+// data with the list of songs
   const [songs, setSongs] = useState(data());
+// current song loaded (use for few more features.)
   const [currentSong , setCurrentSong] = useState(songs[0]);
-  //state
+  //states ! Up
 
   return (
     <div className="App">

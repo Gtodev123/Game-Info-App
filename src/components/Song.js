@@ -1,3 +1,5 @@
+
+// information and visualisation of the current song (pictures, artists, album)
 const Song = ({currentSong}) => {
   return (
     <div className="song-container">
