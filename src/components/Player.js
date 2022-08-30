@@ -8,46 +8,55 @@ import {
 import { useRef, useState } from "react";
 
 const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
-  
   //state
-const [songInfo, setSongInfo] = useState({
-  currentTime: "0.00",
-  duration: null,
-})
+  const [songInfo, setSongInfo] = useState({
+    currentTime: "0.00",
+    duration: null,
+  });
 
   //Ref
   const audioRef = useRef(null);
 
-//EventHandlers
+  //EventHandlers
   const playSongHandler = () => {
     if (isPlaying) {
       audioRef.current.pause();
       setIsPlaying(false);
     } else {
-        setIsPlaying(!isPlaying);
+      setIsPlaying(!isPlaying);
       audioRef.current.play();
-    } 
+    }
   };
 
   const timeUpdateHandler = (e) => {
-    const current = e.target.currentTime
-    const duration = e.target.duration
-    setSongInfo({currentTime: current, duration})
-  }
-  
-  const getTime = time => {
-    const minutes = Math.floor(time / 60)
-    const seconds = Math.floor(time % 60)
-    const secondsWithZero = String(seconds).padStart(2, "0")
-    return `${minutes}:${secondsWithZero}`
-  }
+    const current = e.target.currentTime;
+    const duration = e.target.duration;
+    setSongInfo({ currentTime: current, duration });
+  };
 
+  const getTime = (time) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    const secondsWithZero = String(seconds).padStart(2, "0");
+    return `${minutes}:${secondsWithZero}`;
+  };
+
+  const dragHandler = (e) => {
+    audioRef.current.currentTime = e.target.value
+    setSongInfo({...songInfo, currentTime:e.target.value })
+  };
 
   return (
     <div className="player">
       <div className="time-control">
         <p>{getTime(songInfo.currentTime)}</p>
-        <input type="range" />
+        <input
+          min={0}
+          max={songInfo.duration}
+          value={songInfo.currentTime}
+          onChange={dragHandler}
+          type="range"
+        />
         <p>{getTime(songInfo.duration)}</p>
       </div>
       <div className="play-control">
@@ -64,7 +73,12 @@ const [songInfo, setSongInfo] = useState({
           icon={faAngleRight}
         />
       </div>
-      <audio onTimeUpdate={timeUpdateHandler} ref={audioRef} src={currentSong.audio}></audio>
+      <audio
+        onLoadedMetadata={timeUpdateHandler}
+        onTimeUpdate={timeUpdateHandler}
+        ref={audioRef}
+        src={currentSong.audio}
+      ></audio>
     </div>
   );
 };
