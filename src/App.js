@@ -6,10 +6,15 @@ import Song from "./components/Song";
 //import data
 import data from './util'
 import { useState } from 'react';
+import Library from './components/Library';
+import Nav from './components/Nav';
+import { faL } from '@fortawesome/free-solid-svg-icons';
 
 
 function App() {
 
+  //State if the Library modal is open or not , starts with False (close)
+  const [libraryStatus, setLibraryStatus] = useState(false);
   //if song playing state start with, false.
   const [isPlaying, setIsPlaying] = useState(false);
 // data with the list of songs
@@ -20,8 +25,10 @@ function App() {
 
   return (
     <div className="App">
+      <Nav  libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
       <Song currentSong={currentSong}/>
       <Player isPlaying={isPlaying} setIsPlaying={setIsPlaying} currentSong={currentSong}/>
+      <Library setLibraryStatus={setLibraryStatus} libraryStatus={libraryStatus} currentSong={currentSong} songs={songs} setCurrentSong={setCurrentSong}/>
     </div>
   );
 }

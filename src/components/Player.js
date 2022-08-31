@@ -26,11 +26,11 @@ const Player = ({ currentSong, isPlaying, setIsPlaying }) => {
     if (isPlaying) {
       audioRef.current.pause();
       setIsPlaying(false);
-      setIcons(faPause)
+      setIcons(faPlay)
     } else {
       setIsPlaying(!isPlaying);
       audioRef.current.play();
-      setIcons(faPlay)
+      setIcons(faPause)
     }
   };
 
