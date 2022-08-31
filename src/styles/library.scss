@@ -8,6 +8,7 @@
     background-color: rgb(131, 150, 144);
     box-shadow: 2px 2px 50px rgb(148, 148, 148);
     overflow: scroll;
+    transform: translateX(-100%);
     transition: all 0.5s ease;
     opacity: 0;
 }
@@ -42,3 +43,14 @@
     transform: translateX(0%);
     opacity: 1;
 }
+
+@media screen and (max-width: 768px) {
+
+    .library {
+        width: 100%;
+    }
+
+ }
+ .selected {
+    background: violet;
+ }

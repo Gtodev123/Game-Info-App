@@ -8,7 +8,6 @@ import data from './util'
 import { useState } from 'react';
 import Library from './components/Library';
 import Nav from './components/Nav';
-import { faL } from '@fortawesome/free-solid-svg-icons';
 
 
 function App() {
@@ -28,7 +27,7 @@ function App() {
       <Nav  libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
       <Song currentSong={currentSong}/>
       <Player isPlaying={isPlaying} setIsPlaying={setIsPlaying} currentSong={currentSong}/>
-      <Library setLibraryStatus={setLibraryStatus} libraryStatus={libraryStatus} currentSong={currentSong} songs={songs} setCurrentSong={setCurrentSong}/>
+      <Library id={songs.id} setSongs={setSongs} setLibraryStatus={setLibraryStatus} libraryStatus={libraryStatus} currentSong={currentSong} songs={songs} setCurrentSong={setCurrentSong}/>
     </div>
   );
 }
