@@ -7,9 +7,8 @@ function App() {
     <div className="App">
       <div className="appContainer">
 
-
-        <h1> Когато Пингвина се чуди къде и се ходи.</h1>
-        <h2> Компа ще реши вместо нея !</h2>
+        <h1> Let the random choice generator make a quick decision for you.</h1>
+        <h2> Not recommended for major decisions in life... seriously. Use this decision-maker just for fun and trivial matters.</h2>
         <DelayedComponent />
 
         </div>

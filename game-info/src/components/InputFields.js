@@ -55,9 +55,9 @@ const [rezultat , setRezultat] = useState('');
   return (
     <div className='dashed'> 
         
-      <h2>Въведи желаните варианти.</h2>
+      <h2>Please enter your choices.</h2>
       <form onSubmit={handleSubmit}>
-        <button onClick={handleAddField}>Add Field</button>
+        <button className='button-6' onClick={handleAddField}>Add Entries</button>
         {inputFields.map((field, index) => (
           <div key={index}>
             <input
@@ -65,10 +65,10 @@ const [rezultat , setRezultat] = useState('');
               value={field.value} required
               onChange={(event) => handleInputChange(index, event)}
             />
-            <button onClick={() => handleRemoveField(index)}>Remove</button>
+            <button className='button-6' onClick={() => handleRemoveField(index)}>Remove</button>
           </div>
         ))}
-        { inputFields.length > 0 && <button type="submit">Submit</button>}
+        { inputFields.length > 0 && <button className='button-6' type="submit">Choose for me!!!</button>}
       </form>
       <RandomValueSelector data={rezultat}/>
     </div>

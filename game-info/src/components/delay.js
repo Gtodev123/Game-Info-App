@@ -20,8 +20,9 @@ function DelayedComponent() {
     <div class="gradient-border" id="box">
       {isReady ? (
          <DynamicInputFields />
+         
       ) : (
-        <h2>Loading...</h2>
+       <img src='https://i.gifer.com/yy3.gif' alt='img' />
       )}
     </div>
   );
