@@ -1,24 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import DelayedComponent from './components/delay';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="appContainer">
+
+
+        <h1> Когато Пингвина се чуди къде и се ходи.</h1>
+        <h2> Компа ще реши вместо нея !</h2>
+        <DelayedComponent />
+
+        </div>
+        </div>
   );
 }
 
